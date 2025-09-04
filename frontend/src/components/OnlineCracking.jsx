@@ -130,51 +130,124 @@ const OnlineCracking = () => {
           Çevrim içi Oyun Kırma
         </h1>
 
+        {/* Search Section */}
+        <div className="max-w-md mx-auto mb-8">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Oyun ara..."
+              className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+            />
+          </div>
+        </div>
+
+        {/* Results Info */}
+        <div className="text-center mb-6">
+          <p className="text-gray-400 text-sm">
+            {filteredGames.length} oyun bulundu
+            {searchTerm && ` "${searchTerm}" için`}
+          </p>
+        </div>
+
         {/* Games Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {mockGames.map((game) => (
-            <div
-              key={game.id}
-              onClick={() => handleGameClick(game.link)}
-              className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ${
-                game.link 
-                  ? 'hover:scale-105 hover:shadow-xl cursor-pointer hover:bg-gray-700' 
-                  : 'opacity-60 cursor-not-allowed'
-              }`}
-            >
-              <div className="aspect-video bg-gray-700 flex items-center justify-center">
-                {game.image && !game.image.includes('//header.jpg') ? (
-                  <img
-                    src={game.image}
-                    alt={game.title}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/460x215/374151/9CA3AF?text=No+Image';
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gray-600 flex items-center justify-center text-gray-400">
-                    <span className="text-sm">Görsel Yok</span>
-                  </div>
-                )}
-              </div>
-              
-              <div className="p-4">
-                <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">
-                  {game.title}
-                </h3>
-                <div className="flex items-center justify-between">
-                  <span className="text-gray-400 text-xs">
-                    #{game.hash}
-                  </span>
-                  {game.link && (
-                    <ExternalLink className="w-4 h-4 text-red-400" />
+        {currentGames.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mb-8">
+            {currentGames.map((game) => (
+              <div
+                key={game.id}
+                onClick={() => handleGameClick(game.link)}
+                className={`bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 ${
+                  game.link 
+                    ? 'hover:scale-105 hover:shadow-xl cursor-pointer hover:bg-gray-700' 
+                    : 'opacity-60 cursor-not-allowed'
+                }`}
+              >
+                <div className="aspect-video bg-gray-700 flex items-center justify-center">
+                  {game.image && !game.image.includes('//header.jpg') ? (
+                    <img
+                      src={game.image}
+                      alt={game.title}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.src = 'https://via.placeholder.com/460x215/374151/9CA3AF?text=No+Image';
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gray-600 flex items-center justify-center text-gray-400">
+                      <span className="text-sm">Görsel Yok</span>
+                    </div>
                   )}
                 </div>
+                
+                <div className="p-4">
+                  <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">
+                    {game.title}
+                  </h3>
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-400 text-xs">
+                      #{game.hash}
+                    </span>
+                    {game.link && (
+                      <ExternalLink className="w-4 h-4 text-red-400" />
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-lg">
+              {searchTerm ? `"${searchTerm}" için oyun bulunamadı` : 'Oyun bulunamadı'}
+            </p>
+          </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center space-x-2 mt-8">
+            {/* Previous Button */}
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="flex items-center px-3 py-2 text-sm text-gray-400 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* Page Numbers */}
+            {getPageNumbers().map((page, index) => (
+              <div key={index}>
+                {page === '...' ? (
+                  <span className="px-3 py-2 text-gray-500">...</span>
+                ) : (
+                  <button
+                    onClick={() => handlePageChange(page)}
+                    className={`px-3 py-2 text-sm rounded-lg transition-colors duration-200 ${
+                      currentPage === page
+                        ? 'bg-red-600 text-white'
+                        : 'text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                )}
+              </div>
+            ))}
+
+            {/* Next Button */}
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="flex items-center px-3 py-2 text-sm text-gray-400 bg-gray-800 border border-gray-700 rounded-lg hover:bg-gray-700 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </main>
 
       {/* Footer */}
