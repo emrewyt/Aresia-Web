@@ -63,120 +63,187 @@ const MainMenu = () => {
         </nav>
       </header>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6 relative z-10">
-        <div className="text-center max-w-6xl">
-          
-          {/* Title Section with Animations */}
-          <div className="mb-12">
-            <div className="relative inline-block">
-              <h1 
-                className={`text-8xl md:text-9xl font-bold text-white mb-4 transform transition-all duration-1500 ${
-                  isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                }`}
-                style={{
-                  textShadow: '0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.6)',
-                  fontFamily: 'Impact, Arial Black, sans-serif',
-                  letterSpacing: '0.1em'
-                }}
-              >
-                ARESIA
-              </h1>
-              <div 
-                className={`absolute -top-2 -right-8 text-6xl md:text-7xl font-light text-gray-400 transform transition-all duration-2000 delay-500 ${
-                  isLoaded ? 'translate-y-0 opacity-30' : 'translate-y-10 opacity-0'
-                }`}
-                style={{
-                  fontFamily: 'Georgia, serif',
-                  fontStyle: 'italic'
-                }}
-              >
-                Evreni
-              </div>
-            </div>
-          </div>
-
-          {/* Content Section with Staggered Animations */}
+      {/* Main Content - Card Layout */}
+      <div className="flex-1 flex items-center justify-center px-6 py-12 relative z-10">
+        <div className="max-w-6xl w-full">
           <div 
-            className={`max-w-5xl mx-auto transform transition-all duration-2000 delay-1000 ${
-              isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+            className={`bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-1000 ${
+              isLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
             }`}
+            style={{ minHeight: '600px' }}
           >
-            <div className="backdrop-blur-lg bg-black bg-opacity-20 rounded-3xl p-8 md:p-12 border border-white border-opacity-10 shadow-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-full">
               
-              <h2 
-                className={`text-3xl md:text-4xl font-bold text-white mb-8 transform transition-all duration-1500 delay-1500 ${
-                  isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
-                style={{
-                  background: 'linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text'
-                }}
-              >
-                Aresia Evreni: Dijital Rönesans ve Ruhun Yeniden Keşfi
-              </h2>
-              
-              <div 
-                className={`text-lg md:text-xl text-gray-200 leading-relaxed space-y-6 transform transition-all duration-1500 delay-2000 ${
-                  isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                }`}
-              >
-                <p>
-                  Aresia, sadece bir teknoloji markası ya da uygulama geliştiricisi değildir; on yılı aşkın süredir dijital ve fiziksel dünyamıza hükmeden, yavan ve ruhsuz Minimalizm çağını sonlandırmak üzere yükselen, canlı, nefes alan bir kültürel devrimdir.
-                </p>
+              {/* Left Side - Content */}
+              <div className="p-8 lg:p-12 flex flex-col justify-between">
                 
-                <p>
-                  Biz, Y2K'nın fütüristik iyimserliğini, Cybercore'un keskin enerjisini ve Frutiger Aero'nun zengin, dokunsal estetiğini modern bir felsefeyle harmanlayarak, insan ruhuna dokunan yeni bir sanatsal akımın temellerini atıyoruz.
-                </p>
-
-                <div 
-                  className={`transform transition-all duration-1500 delay-2500 ${
-                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                {/* Top Navigation Menu */}
+                <nav 
+                  className={`flex flex-wrap gap-6 mb-8 transform transition-all duration-1000 delay-300 ${
+                    isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
                   }`}
                 >
-                  <h3 className="text-2xl font-bold text-red-400 mb-4 mt-8">Sanatta ve Toplumda Yeni Bir Umut</h3>
-                  <p>
-                    Aresia Evreni'nin misyonu, genç nesiller için umudun, yaratıcılığın ve sınırsız potansiyelin simgesi olmaktır. Dünya üzerindeki en büyük ve en çeşitli topluluğu inşa etme hedefiyle yola çıktık. Amacımız, sadeleşmenin ötesine geçmek; sanattan tasarıma kadar her alanda, insani duygusal derinliği ve zenginliği geri getiren, parlayan, yaşayan bir estetiği yeniden inşa etmektir.
-                  </p>
-                </div>
+                  <Link 
+                    to="/" 
+                    className="text-gray-800 hover:text-red-500 transition-colors font-medium text-lg border-b-2 border-red-500"
+                  >
+                    Ev
+                  </Link>
+                  <Link 
+                    to="/OnlineFix" 
+                    className="text-gray-600 hover:text-red-500 transition-colors font-medium text-lg"
+                  >
+                    Çevrimiçi Kırma
+                  </Link>
+                  <a 
+                    href="https://guns.lol/emrewyt" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-red-500 transition-colors font-medium text-lg"
+                  >
+                    Emre
+                  </a>
+                  <a 
+                    href="https://discord.com/invite/M2tKrMMzRT" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-red-500 transition-colors font-medium text-lg"
+                  >
+                    Discord
+                  </a>
+                  <a 
+                    href="https://donate.bynogame.com/emrewyt" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-red-500 transition-colors font-medium text-lg"
+                  >
+                    Support me
+                  </a>
+                </nav>
 
-                <div 
-                  className={`transform transition-all duration-1500 delay-3000 ${
-                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                  }`}
-                >
-                  <h3 className="text-2xl font-bold text-blue-400 mb-4 mt-8">Teknolojinin ve İhtiyaçların Ötesi</h3>
-                  <p>
-                    Tek bir yazılımla yetinmiyoruz. Aresia, insanlığın acil ihtiyaçlarını karşılayan çözümler üretirken, aynı zamanda geleceği de şekillendirir.
-                  </p>
-                  
-                  <div className="mt-6 space-y-4">
-                    <p>
-                      <span className="font-bold text-green-400">Çok Yönlü Çözümler:</span> Kritik deprem tespiti gibi hayat kurtaran uygulamalardan, kullanıcı deneyimini merkeze alan yenilikçi oyun projelerine kadar geniş bir yelpazede teknoloji geliştiriyoruz.
-                    </p>
+                {/* Title Section */}
+                <div className="flex-1 flex flex-col justify-center">
+                  <div 
+                    className={`mb-6 transform transition-all duration-1000 delay-600 ${
+                      isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                    }`}
+                  >
+                    <div className="relative">
+                      <h1 
+                        className="text-6xl lg:text-8xl font-black text-gray-900 mb-2"
+                        style={{
+                          fontFamily: 'Impact, Arial Black, sans-serif',
+                          letterSpacing: '-0.02em'
+                        }}
+                      >
+                        ARESIA
+                      </h1>
+                      <div 
+                        className="text-3xl lg:text-4xl font-light text-gray-500 ml-2"
+                        style={{
+                          fontFamily: 'Georgia, serif',
+                          fontStyle: 'italic'
+                        }}
+                      >
+                        Evreni
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div 
+                    className={`space-y-4 transform transition-all duration-1000 delay-900 ${
+                      isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                    }`}
+                  >
+                    <h2 className="text-xl lg:text-2xl font-bold text-gray-800 leading-tight">
+                      Dijital Rönesans ve Ruhun Yeniden Keşfi
+                    </h2>
                     
-                    <p>
-                      <span className="font-bold text-purple-400">Fütüristik Hedef:</span> Vizyonumuzun zirvesinde ise fütüristik bilim kurguyu gerçeğe dönüştürmek var: Gelecekte kuracağımız robotik şirketimiz aracılığıyla, Detroit: Become Human evreninden ilham alan, etik ve insani değerlere sahip sentetik yaşam formları (robotlar) üretme hedefini taşıyoruz.
+                    <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                      Aresia, on yılı aşkın süredir dijital ve fiziksel dünyamıza hükmeden, yavan ve ruhsuz Minimalizm çağını sonlandırmak üzere yükselen, canlı, nefes alan bir kültürel devrimdir.
                     </p>
+
+                    <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                      Y2K'nın fütüristik iyimserliğini, Cybercore'un keskin enerjisini ve Frutiger Aero'nun zengin, dokunsal estetiğini modern bir felsefeyle harmanlayarak, insan ruhuna dokunan yeni bir sanatsal akımın temellerini atıyoruz.
+                    </p>
+
+                    <div className="mt-6 space-y-3">
+                      <div>
+                        <h3 className="font-bold text-red-600 text-sm lg:text-base">Sanatta ve Toplumda Yeni Bir Umut</h3>
+                        <p className="text-gray-600 text-xs lg:text-sm">
+                          Genç nesiller için umudun, yaratıcılığın ve sınırsız potansiyelin simgesi olmaktır.
+                        </p>
+                      </div>
+                      
+                      <div>
+                        <h3 className="font-bold text-blue-600 text-sm lg:text-base">Teknolojinin ve İhtiyaçların Ötesi</h3>
+                        <p className="text-gray-600 text-xs lg:text-sm">
+                          Kritik deprem tespitinden yenilikçi oyun projelerine, fütüristik robotik hedeflerine kadar geniş bir vizyon.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
+                {/* Bottom Copyright */}
                 <div 
-                  className={`transform transition-all duration-1500 delay-3500 ${
-                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  className={`text-xs text-gray-500 mt-8 transform transition-all duration-1000 delay-1200 ${
+                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
                   }`}
                 >
-                  <p className="text-xl font-semibold mt-8 text-center" style={{
-                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text'
-                  }}>
-                    Aresia, dijital ve fiziksel varoluşun her alanında yeniliği, kültürel değişimi ve insan merkezli tasarımı savunur. Bu sadece bir başlangıç. Aresia Evrenine hoş geldiniz; sanal özgürlüğün, sınırsız yaratıcılığın ve yeniden keşfedilmiş ruhun mabedine...
-                  </p>
+                  © 2025 Aresia Evreni. Tüm hakları saklıdır.
                 </div>
+              </div>
+
+              {/* Right Side - Image/Visual */}
+              <div className="relative bg-gradient-to-br from-red-400 via-purple-500 to-blue-600 flex items-center justify-center overflow-hidden">
+                <div 
+                  className={`absolute inset-0 transform transition-all duration-1500 delay-400 ${
+                    isLoaded ? 'scale-100 rotate-0' : 'scale-110 rotate-3'
+                  }`}
+                  style={{
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+                
+                {/* Overlay with pattern */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-red-600/40 via-transparent to-purple-600/40"></div>
+                
+                {/* Centered Logo/Text */}
+                <div 
+                  className={`relative z-10 text-center transform transition-all duration-1500 delay-800 ${
+                    isLoaded ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
+                  }`}
+                >
+                  <div 
+                    className="text-8xl lg:text-9xl font-black text-white mb-4"
+                    style={{
+                      textShadow: '0 0 30px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.4)',
+                      fontFamily: 'Impact, Arial Black, sans-serif',
+                      letterSpacing: '0.1em',
+                      WebkitTextStroke: '2px rgba(255, 255, 255, 0.1)'
+                    }}
+                  >
+                    A
+                  </div>
+                  <div 
+                    className="text-white text-lg font-light tracking-widest"
+                    style={{
+                      textShadow: '0 2px 10px rgba(0, 0, 0, 0.7)',
+                    }}
+                  >
+                    ARESIA EVRENI
+                  </div>
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-4 right-4 w-12 h-12 border-2 border-white opacity-30 rounded-full"></div>
+                <div className="absolute bottom-8 left-8 w-6 h-6 bg-white opacity-20 rounded-full"></div>
+                <div className="absolute top-1/3 left-4 w-3 h-20 bg-white opacity-10 rounded-full transform rotate-12"></div>
               </div>
             </div>
           </div>
