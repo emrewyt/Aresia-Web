@@ -52,6 +52,11 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+@api_router.get("/Sürüm")
+async def get_version():
+    """Version endpoint for C# application to check current version"""
+    return "1.0.0"
+
 # Include the router in the main app
 app.include_router(api_router)
 
