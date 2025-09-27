@@ -89,7 +89,7 @@ const OnlineCracking = () => {
             </Link>
             <span className="text-red-400 font-semibold">Çevrimiçi Kırma</span>
             <a 
-              href="https://www.guns.lol/emrewyt" 
+              href="https://guns.lol/emrewyt" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-red-400 transition-colors"
@@ -97,15 +97,7 @@ const OnlineCracking = () => {
               Emre
             </a>
             <a 
-              href="https://steamdb.info" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-red-400 transition-colors"
-            >
-              SteamDB
-            </a>
-            <a 
-              href="https://discord.gg/M2tKrMMzRT" 
+              href="https://discord.com/invite/M2tKrMMzRT" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-red-400 transition-colors"
