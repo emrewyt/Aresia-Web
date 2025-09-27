@@ -81,7 +81,7 @@ const OnlineCracking = () => {
       <header className="bg-black bg-opacity-50 p-6 sticky top-0 z-10">
         <nav className="flex items-center justify-between">
           <div className="text-white text-2xl font-bold">
-            ARES
+            ARESIA
           </div>
           <div className="flex items-center space-x-6 text-white">
             <Link to="/" className="hover:text-red-400 transition-colors">
