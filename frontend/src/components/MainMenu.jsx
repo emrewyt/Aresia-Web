@@ -34,7 +34,7 @@ const MainMenu = () => {
             
             {/* Top Navigation Menu */}
             <nav 
-              className={`flex flex-wrap gap-6 mb-12 transform transition-all duration-1000 delay-300 ${
+              className={`flex flex-wrap gap-4 mb-8 transform transition-all duration-1000 delay-300 ${
                 isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'
               }`}
             >
