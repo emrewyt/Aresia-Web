@@ -122,26 +122,26 @@ const MainMenu = () => {
                 Biz, Y2K'nın fütüristik iyimserliğini, Cybercore'un keskin enerjisini ve Frutiger Aero'nun zengin, dokunsal estetiğini modern bir felsefeyle harmanlayarak, insan ruhuna dokunan yeni bir sanatsal akımın temellerini atıyoruz.
               </p>
 
-              <div className="mt-8 space-y-6">
+              <div className="mt-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold text-red-600 mb-3">Sanatta ve Toplumda Yeni Bir Umut</h3>
-                  <p className="text-gray-600 leading-relaxed">
+                  <h3 className="text-lg font-bold text-red-600 mb-2">Sanatta ve Toplumda Yeni Bir Umut</h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     Aresia Evreni'nin misyonu, genç nesiller için umudun, yaratıcılığın ve sınırsız potansiyelin simgesi olmaktır. Dünya üzerindeki en büyük ve en çeşitli topluluğu inşa etme hedefiyle yola çıktık. Amacımız, sadeleşmenin ötesine geçmek; sanattan tasarıma kadar her alanda, insani duygusal derinliği ve zenginliği geri getiren, parlayan, yaşayan bir estetiği yeniden inşa etmektir. Aresia, monotonluktan kurtuluşun ve dijital sanata yeni bir boyut kazandırmanın adıdır.
                   </p>
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-bold text-blue-600 mb-3">Teknolojinin ve İhtiyaçların Ötesi</h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
+                  <h3 className="text-lg font-bold text-blue-600 mb-2">Teknolojinin ve İhtiyaçların Ötesi</h3>
+                  <p className="text-gray-600 leading-relaxed mb-3 text-sm">
                     Tek bir yazılımla yetinmiyoruz. Aresia, insanlığın acil ihtiyaçlarını karşılayan çözümler üretirken, aynı zamanda geleceği de şekillendirir.
                   </p>
                   
-                  <div className="space-y-4">
-                    <p className="text-gray-600 leading-relaxed">
+                  <div className="space-y-3">
+                    <p className="text-gray-600 leading-relaxed text-sm">
                       <span className="font-bold text-green-600">Çok Yönlü Çözümler:</span> Kritik deprem tespiti gibi hayat kurtaran uygulamalardan, kullanıcı deneyimini merkeze alan yenilikçi oyun projelerine kadar geniş bir yelpazede teknoloji geliştiriyoruz.
                     </p>
                     
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-sm">
                       <span className="font-bold text-purple-600">Fütüristik Hedef:</span> Vizyonumuzun zirvesinde ise fütüristik bilim kurguyu gerçeğe dönüştürmek var: Gelecekte kuracağımız robotik şirketimiz aracılığıyla, Detroit: Become Human evreninden ilham alan, etik ve insani değerlere sahip sentetik yaşam formları (robotlar) üretme hedefini taşıyoruz.
                     </p>
                   </div>
