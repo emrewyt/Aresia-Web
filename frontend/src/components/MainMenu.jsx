@@ -21,7 +21,7 @@ const MainMenu = () => {
     >
       
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
       
       {/* Main Content - Full Width */}
       <div className="flex-1 flex items-center justify-center px-4 py-6 relative z-10">
