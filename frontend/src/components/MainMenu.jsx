@@ -13,7 +13,12 @@ const MainMenu = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div 
+      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: 'url(/AresiaLayer.jpg)'
+      }}
+    >
       
       {/* Main Content - Full Width */}
       <div className="flex-1 flex items-center justify-center px-6 py-12">
