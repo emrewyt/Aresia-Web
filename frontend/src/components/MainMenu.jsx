@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Download, Search, Loader2, CheckCircle } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const MainMenu = () => {
