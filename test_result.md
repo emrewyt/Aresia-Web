@@ -101,3 +101,72 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Aresia markası için website yapma - Ana menüden arama çubuğu kaldırma, AresiaLayer.jpg arkaplan, yeni menü yapısı (Ev, Çevrimiçi Kırma /OnlineFix, Emre, Discord, Support me), Kagura → Aresia değişikliği, uzun manifest metni, animasyonlar"
+
+frontend:
+  - task: "DisclaimerModal kaldırma"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "DisclaimerModal import ve render kısmı başarıyla kaldırıldı"
+
+  - task: "Ana sayfa MainMenu.jsx tamamen yeniden tasarım"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MainMenu.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Arama çubuğu kaldırıldı, yeni menü yapısı eklendi, Aresia başlığı ve uzun metin içeriği, fade-in animasyonlar eklendi"
+
+  - task: "Routing güncellemeleri"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "/online-cracking route'u /OnlineFix olarak güncellendi"
+
+  - task: "OnlineCracking bileşeni güncelleme"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/OnlineCracking.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Brand adı ARESIA olarak güncellendi, linkler düzenlendi, SteamDB linki kaldırıldı"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: true
+
+test_plan:
+  current_focus:
+    - "Ana sayfa MainMenu.jsx tamamen yeniden tasarım"
+    - "Routing güncellemeleri"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Aresia markası website'i için tüm temel değişiklikler tamamlandı. Ana sayfa tamamen yeniden tasarlandı, animasyonlar eklendi, routing güncellendi. Frontend testi için hazır."
