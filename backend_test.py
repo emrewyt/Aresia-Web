@@ -114,17 +114,19 @@ class BackendTester:
         test_name = "CORS configuration test"
         
         try:
-            # Make an OPTIONS request to check CORS headers
-            response = requests.options(f"{BASE_URL}/api/", timeout=10)
+            # Make a GET request with Origin header to test CORS
+            headers = {"Origin": "http://example.com"}
+            response = requests.get(f"{BASE_URL}/api/", headers=headers, timeout=10)
             
             cors_headers = {
                 "access-control-allow-origin": response.headers.get('access-control-allow-origin'),
+                "access-control-allow-credentials": response.headers.get('access-control-allow-credentials'),
                 "access-control-allow-methods": response.headers.get('access-control-allow-methods'),
                 "access-control-allow-headers": response.headers.get('access-control-allow-headers'),
             }
             
             # Check if CORS is properly configured
-            has_cors = any(header for header in cors_headers.values())
+            allow_origin = cors_headers["access-control-allow-origin"]
             
             details = {
                 "status_code": response.status_code,
@@ -132,20 +134,10 @@ class BackendTester:
                 "response_time": f"{response.elapsed.total_seconds():.3f}s"
             }
             
-            if has_cors:
-                self.log_result(test_name, True, "CORS headers present", details)
+            if allow_origin:
+                self.log_result(test_name, True, f"CORS properly configured (allow-origin: {allow_origin})", details)
             else:
-                # Try a regular GET request to see if CORS headers are present
-                get_response = requests.get(f"{BASE_URL}/api/", timeout=10)
-                get_cors_headers = {
-                    "access-control-allow-origin": get_response.headers.get('access-control-allow-origin'),
-                }
-                
-                if get_cors_headers["access-control-allow-origin"]:
-                    details["get_cors_headers"] = get_cors_headers
-                    self.log_result(test_name, True, "CORS configured (found in GET response)", details)
-                else:
-                    self.log_result(test_name, False, "No CORS headers found", details)
+                self.log_result(test_name, False, "No CORS allow-origin header found", details)
                 
         except requests.exceptions.RequestException as e:
             self.log_result(test_name, False, f"Request failed: {str(e)}")
