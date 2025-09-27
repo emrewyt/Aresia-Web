@@ -78,13 +78,13 @@ const MainMenu = () => {
 
             {/* Title Section */}
             <div 
-              className={`mb-8 transform transition-all duration-1000 delay-600 ${
+              className={`mb-6 transform transition-all duration-1000 delay-600 ${
                 isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
             >
               <div className="relative">
                 <h1 
-                  className="text-6xl lg:text-8xl font-black text-gray-900 mb-2"
+                  className="text-4xl lg:text-6xl font-black text-gray-900 mb-1"
                   style={{
                     fontFamily: 'Impact, Arial Black, sans-serif',
                     letterSpacing: '-0.02em'
@@ -93,7 +93,7 @@ const MainMenu = () => {
                   ARESIA
                 </h1>
                 <div 
-                  className="text-3xl lg:text-4xl font-light text-gray-500 ml-2"
+                  className="text-2xl lg:text-3xl font-light text-gray-500 ml-2"
                   style={{
                     fontFamily: 'Georgia, serif',
                     fontStyle: 'italic'
