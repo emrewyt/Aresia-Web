@@ -14,42 +14,40 @@ const MainMenu = () => {
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col"
+      className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col relative"
       style={{
-        backgroundImage: 'url(https://i.pinimg.com/1200x/d9/44/ab/d944ab2d46564c0b557588629ee71c82.jpg)'
+        backgroundImage: 'url(./AresiaLayer.jpg)'
       }}
     >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      
       {/* Header Navigation */}
-      <header className="p-6">
+      <header className="relative z-10 p-6">
         <nav className="flex items-center justify-between">
           <div className="text-white text-2xl font-bold">
-            ARES
+            ARESIA
           </div>
           <div className="flex items-center space-x-6 text-white">
-            <Link to="/online-cracking" className="hover:text-red-400 transition-colors">
-              Çevrim içi kırma
+            <Link to="/" className="hover:text-red-400 transition-colors font-medium">
+              Ev
+            </Link>
+            <Link to="/OnlineFix" className="hover:text-red-400 transition-colors font-medium">
+              Çevrimiçi Kırma
             </Link>
             <a 
-              href="https://www.guns.lol/emrewyt" 
+              href="https://guns.lol/emrewyt" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-red-400 transition-colors"
+              className="hover:text-red-400 transition-colors font-medium"
             >
               Emre
             </a>
             <a 
-              href="https://steamdb.info" 
+              href="https://discord.com/invite/M2tKrMMzRT" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-red-400 transition-colors"
-            >
-              SteamDB
-            </a>
-            <a 
-              href="https://discord.gg/M2tKrMMzRT" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="hover:text-red-400 transition-colors"
+              className="hover:text-red-400 transition-colors font-medium"
             >
               Discord
             </a>
@@ -57,7 +55,7 @@ const MainMenu = () => {
               href="https://donate.bynogame.com/emrewyt" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hover:text-red-400 transition-colors"
+              className="hover:text-red-400 transition-colors font-medium"
             >
               Support me
             </a>
@@ -66,86 +64,129 @@ const MainMenu = () => {
       </header>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-6">
-        {/* Search Section */}
-        <div className="w-full max-w-2xl mb-8">
-          <div className="backdrop-blur-md bg-white bg-opacity-10 rounded-2xl p-8 border border-white border-opacity-20 shadow-2xl">
-            <div className="flex flex-col space-y-4">
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white w-5 h-5" />
-                <input
-                  type="text"
-                  value={gameId}
-                  onChange={(e) => setGameId(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Lütfen bir app id giriniz"
-                  className="w-full pl-12 pr-4 py-4 bg-black bg-opacity-30 border border-white border-opacity-20 rounded-xl text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                />
-              </div>
-              <button
-                onClick={checkManifest}
-                disabled={isChecking}
-                className={`w-full py-4 px-6 rounded-xl font-semibold text-white transition-all duration-300 ${
-                  isCompleted 
-                    ? 'bg-green-600 hover:bg-green-700' 
-                    : 'bg-red-600 hover:bg-red-700'
-                } disabled:opacity-70`}
+      <div className="flex-1 flex flex-col items-center justify-center px-6 relative z-10">
+        <div className="text-center max-w-6xl">
+          
+          {/* Title Section with Animations */}
+          <div className="mb-12">
+            <div className="relative inline-block">
+              <h1 
+                className={`text-8xl md:text-9xl font-bold text-white mb-4 transform transition-all duration-1500 ${
+                  isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{
+                  textShadow: '0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.6)',
+                  fontFamily: 'Impact, Arial Black, sans-serif',
+                  letterSpacing: '0.1em'
+                }}
               >
-                {isChecking ? (
-                  <span className="flex items-center justify-center">
-                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                    KONTROL EDİLİYOR...
-                  </span>
-                ) : isCompleted ? (
-                  <span className="flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 mr-2" />
-                    KONTROL TAMAMLANDI
-                  </span>
-                ) : (
-                  'İndir'
-                )}
-              </button>
+                ARESIA
+              </h1>
+              <div 
+                className={`absolute -top-2 -right-8 text-6xl md:text-7xl font-light text-gray-400 transform transition-all duration-2000 delay-500 ${
+                  isLoaded ? 'translate-y-0 opacity-30' : 'translate-y-10 opacity-0'
+                }`}
+                style={{
+                  fontFamily: 'Georgia, serif',
+                  fontStyle: 'italic'
+                }}
+              >
+                Evreni
+              </div>
+            </div>
+          </div>
+
+          {/* Content Section with Staggered Animations */}
+          <div 
+            className={`max-w-5xl mx-auto transform transition-all duration-2000 delay-1000 ${
+              isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+            }`}
+          >
+            <div className="backdrop-blur-lg bg-black bg-opacity-20 rounded-3xl p-8 md:p-12 border border-white border-opacity-10 shadow-2xl">
+              
+              <h2 
+                className={`text-3xl md:text-4xl font-bold text-white mb-8 transform transition-all duration-1500 delay-1500 ${
+                  isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+                style={{
+                  background: 'linear-gradient(135deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                Aresia Evreni: Dijital Rönesans ve Ruhun Yeniden Keşfi
+              </h2>
+              
+              <div 
+                className={`text-lg md:text-xl text-gray-200 leading-relaxed space-y-6 transform transition-all duration-1500 delay-2000 ${
+                  isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                }`}
+              >
+                <p>
+                  Aresia, sadece bir teknoloji markası ya da uygulama geliştiricisi değildir; on yılı aşkın süredir dijital ve fiziksel dünyamıza hükmeden, yavan ve ruhsuz Minimalizm çağını sonlandırmak üzere yükselen, canlı, nefes alan bir kültürel devrimdir.
+                </p>
+                
+                <p>
+                  Biz, Y2K'nın fütüristik iyimserliğini, Cybercore'un keskin enerjisini ve Frutiger Aero'nun zengin, dokunsal estetiğini modern bir felsefeyle harmanlayarak, insan ruhuna dokunan yeni bir sanatsal akımın temellerini atıyoruz.
+                </p>
+
+                <div 
+                  className={`transform transition-all duration-1500 delay-2500 ${
+                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                >
+                  <h3 className="text-2xl font-bold text-red-400 mb-4 mt-8">Sanatta ve Toplumda Yeni Bir Umut</h3>
+                  <p>
+                    Aresia Evreni'nin misyonu, genç nesiller için umudun, yaratıcılığın ve sınırsız potansiyelin simgesi olmaktır. Dünya üzerindeki en büyük ve en çeşitli topluluğu inşa etme hedefiyle yola çıktık. Amacımız, sadeleşmenin ötesine geçmek; sanattan tasarıma kadar her alanda, insani duygusal derinliği ve zenginliği geri getiren, parlayan, yaşayan bir estetiği yeniden inşa etmektir.
+                  </p>
+                </div>
+
+                <div 
+                  className={`transform transition-all duration-1500 delay-3000 ${
+                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                >
+                  <h3 className="text-2xl font-bold text-blue-400 mb-4 mt-8">Teknolojinin ve İhtiyaçların Ötesi</h3>
+                  <p>
+                    Tek bir yazılımla yetinmiyoruz. Aresia, insanlığın acil ihtiyaçlarını karşılayan çözümler üretirken, aynı zamanda geleceği de şekillendirir.
+                  </p>
+                  
+                  <div className="mt-6 space-y-4">
+                    <p>
+                      <span className="font-bold text-green-400">Çok Yönlü Çözümler:</span> Kritik deprem tespiti gibi hayat kurtaran uygulamalardan, kullanıcı deneyimini merkeze alan yenilikçi oyun projelerine kadar geniş bir yelpazede teknoloji geliştiriyoruz.
+                    </p>
+                    
+                    <p>
+                      <span className="font-bold text-purple-400">Fütüristik Hedef:</span> Vizyonumuzun zirvesinde ise fütüristik bilim kurguyu gerçeğe dönüştürmek var: Gelecekte kuracağımız robotik şirketimiz aracılığıyla, Detroit: Become Human evreninden ilham alan, etik ve insani değerlere sahip sentetik yaşam formları (robotlar) üretme hedefini taşıyoruz.
+                    </p>
+                  </div>
+                </div>
+
+                <div 
+                  className={`transform transition-all duration-1500 delay-3500 ${
+                    isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+                  }`}
+                >
+                  <p className="text-xl font-semibold mt-8 text-center" style={{
+                    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text'
+                  }}>
+                    Aresia, dijital ve fiziksel varoluşun her alanında yeniliği, kültürel değişimi ve insan merkezli tasarımı savunur. Bu sadece bir başlangıç. Aresia Evrenine hoş geldiniz; sanal özgürlüğün, sınırsız yaratıcılığın ve yeniden keşfedilmiş ruhun mabedine...
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Results Section */}
-        {showResults && (
-          <div className="w-full max-w-2xl mb-8">
-            <div className="backdrop-blur-md bg-black bg-opacity-60 rounded-2xl p-6 border border-gray-700">
-              <div 
-                ref={terminalRef}
-                className="bg-black rounded-lg p-4 h-32 overflow-y-auto font-mono text-green-400 text-sm whitespace-pre-wrap"
-              >
-                {terminalText}
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Download Section */}
-        {showDownload && (
-          <div className="w-full max-w-2xl">
-            <div className="backdrop-blur-md bg-white bg-opacity-10 rounded-2xl p-6 border border-white border-opacity-20">
-              <div className="text-center">
-                <h3 className="text-white text-xl font-semibold mb-4">Manifest Hazır!</h3>
-                <a
-                  href={downloadUrl}
-                  className="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200 font-semibold"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Manifest İndir
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Footer */}
-      <footer className="p-6 text-center">
+      <footer className="relative z-10 p-6 text-center">
         <p className="text-white text-sm opacity-70">
-          © 2025 Ares. Tüm hakları saklıdır.
+          © 2025 Aresia Evreni. Tüm hakları saklıdır.
         </p>
       </footer>
     </div>
