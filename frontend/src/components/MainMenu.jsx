@@ -14,7 +14,7 @@ const MainMenu = () => {
 
   return (
     <div 
-      className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat"
+      className="h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden"
       style={{
         backgroundImage: 'url(/AresiaLayer.jpg)'
       }}
