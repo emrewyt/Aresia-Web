@@ -2,73 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const MainMenu = () => {
-  const [gameId, setGameId] = useState('');
-  const [isChecking, setIsChecking] = useState(false);
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [showResults, setShowResults] = useState(false);
-  const [showDownload, setShowDownload] = useState(false);
-  const [terminalText, setTerminalText] = useState('');
-  const [downloadUrl, setDownloadUrl] = useState('');
-  
-  const terminalRef = useRef(null);
-
-  const typeTerminalText = (text, delay = 0) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        let i = 0;
-        const interval = setInterval(() => {
-          if (i < text.length) {
-            setTerminalText(prev => prev + text.charAt(i));
-            i++;
-          } else {
-            clearInterval(interval);
-            resolve();
-          }
-        }, 20);
-      }, delay);
-    });
-  };
-
-  const checkManifest = async () => {
-    if (!gameId.trim() || !/^\d+$/.test(gameId.trim())) {
-      alert('Lütfen geçerli bir Steam AppID girin (yalnızca sayılar)');
-      return;
-    }
-
-    setIsChecking(true);
-    setIsCompleted(false);
-    setShowResults(true);
-    setShowDownload(false);
-    setTerminalText('');
-
-    await typeTerminalText(`> Steam AppID için manifest kontrolü başlatılıyor: ${gameId}\n`, 0);
-    await typeTerminalText(`> Veritabanı aranıyor...\n> Manifest veritabanında bulundu!\n> İndirme bağlantısı hazırlanıyor...\n> İndirmeye hazır.\n`, 1000);
-
-    const githubUrl = `https://codeload.github.com/SteamAutoCracks/ManifestHub/zip/refs/heads/${gameId}`;
-    setDownloadUrl(githubUrl);
-
-    setTimeout(() => {
-      setShowDownload(true);
-      setIsChecking(false);
-      setIsCompleted(true);
-    }, 1500);
-
-    setTimeout(() => {
-      setIsCompleted(false);
-    }, 3000);
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      checkManifest();
-    }
-  };
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (terminalRef.current) {
-      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
-    }
-  }, [terminalText]);
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div 
