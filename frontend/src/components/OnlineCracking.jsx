@@ -85,9 +85,9 @@ const OnlineCracking = () => {
           </div>
           <div className="flex items-center space-x-6 text-white">
             <Link to="/" className="hover:text-red-400 transition-colors">
-              Ana menü
+              Ev
             </Link>
-            <span className="text-red-400 font-semibold">Çevrim içi kırma</span>
+            <span className="text-red-400 font-semibold">Çevrimiçi Kırma</span>
             <a 
               href="https://www.guns.lol/emrewyt" 
               target="_blank" 
