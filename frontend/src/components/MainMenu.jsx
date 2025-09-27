@@ -13,12 +13,16 @@ const MainMenu = () => {
   }, []);
 
   return (
-    <div 
-      className="h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{
-        backgroundImage: 'url(/AresiaLayer.jpg)'
-      }}
-    >
+    <div className="h-screen flex flex-col overflow-hidden relative">
+      {/* Animated Background Image */}
+      <div 
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{
+          backgroundImage: 'url(/AresiaLayer.jpg)'
+        }}
+      />
       
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black bg-opacity-20"></div>
