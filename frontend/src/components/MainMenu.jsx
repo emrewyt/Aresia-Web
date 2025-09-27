@@ -106,19 +106,19 @@ const MainMenu = () => {
 
             {/* Content */}
             <div 
-              className={`space-y-6 transform transition-all duration-1000 delay-900 ${
+              className={`space-y-4 transform transition-all duration-1000 delay-900 ${
                 isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
               }`}
             >
-              <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 leading-tight">
+              <h2 className="text-xl lg:text-2xl font-bold text-gray-800 leading-tight">
                 Aresia Evreni: Dijital Rönesans ve Ruhun Yeniden Keşfi
               </h2>
               
-              <p className="text-gray-600 leading-relaxed text-base lg:text-lg">
+              <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
                 Aresia, sadece bir teknoloji markası ya da uygulama geliştiricisi değildir; on yılı aşkın süredir dijital ve fiziksel dünyamıza hükmeden, yavan ve ruhsuz Minimalizm çağını sonlandırmak üzere yükselen, canlı, nefes alan bir kültürel devrimdir.
               </p>
 
-              <p className="text-gray-600 leading-relaxed text-base lg:text-lg">
+              <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
                 Biz, Y2K'nın fütüristik iyimserliğini, Cybercore'un keskin enerjisini ve Frutiger Aero'nun zengin, dokunsal estetiğini modern bir felsefeyle harmanlayarak, insan ruhuna dokunan yeni bir sanatsal akımın temellerini atıyoruz.
               </p>
 
