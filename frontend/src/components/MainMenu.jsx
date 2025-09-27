@@ -148,8 +148,8 @@ const MainMenu = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-gray-50 rounded-2xl">
-                <p className="text-gray-700 text-center font-medium text-lg leading-relaxed">
+              <div className="mt-6 p-4 bg-gray-50 bg-opacity-60 rounded-xl">
+                <p className="text-gray-700 text-center font-medium text-base leading-relaxed">
                   Aresia, dijital ve fiziksel varoluşun her alanında yeniliği, kültürel değişimi ve insan merkezli tasarımı savunur. Bu sadece bir başlangıç. Aresia Evrenine hoş geldiniz; sanal özgürlüğün, sınırsız yaratıcılığın ve yeniden keşfedilmiş ruhun mabedine...
                 </p>
               </div>
@@ -157,7 +157,7 @@ const MainMenu = () => {
 
             {/* Bottom Copyright */}
             <div 
-              className={`text-sm text-gray-500 mt-12 text-center transform transition-all duration-1000 delay-1200 ${
+              className={`text-xs text-gray-500 mt-8 text-center transform transition-all duration-1000 delay-1200 ${
                 isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
               }`}
             >
