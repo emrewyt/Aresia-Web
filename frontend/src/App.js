@@ -8,10 +8,9 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <DisclaimerModal />
         <Routes>
           <Route path="/" element={<MainMenu />} />
-          <Route path="/online-cracking" element={<OnlineCracking />} />
+          <Route path="/OnlineFix" element={<OnlineCracking />} />
         </Routes>
       </BrowserRouter>
     </div>
